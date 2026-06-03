@@ -57,10 +57,16 @@ jobs:
       run: |
         az webapp config container set \
           --name $WEBAPP_NAME \
-          --resource-group <resource-group> \
+          --resource-group pradeep4u \
           --container-image-name $ACR_NAME.azurecr.io/$IMAGE_NAME:${{ github.sha }}
 
-  #         - name: Configure Web App
+
+    - name: Restart Web App
+      run: |
+         az webapp restart \
+           --name $WEBAPP_NAME \
+           --resource-group pradeep4u
+           - name: Configure Web App
   # run: |
   #   az webapp config container set \
   #     --name mywebapp \
