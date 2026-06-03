@@ -8,7 +8,7 @@ on:
 env:
   ACR_NAME: mywebapidemoacr4u
   IMAGE_NAME: mywebapi
-  WEBAPP_NAME: mywebapi-prod
+  WEBAPP_NAME: mydemowebapi
 
 jobs:
   build-and-deploy:
@@ -60,8 +60,14 @@ jobs:
           --resource-group <resource-group> \
           --container-image-name $ACR_NAME.azurecr.io/$IMAGE_NAME:${{ github.sha }}
 
-    - name: Restart Web App
-      run: |
-        az webapp restart \
-          --name $WEBAPP_NAME \
-          --resource-group <resource-group>
+  #         - name: Configure Web App
+  # run: |
+  #   az webapp config container set \
+  #     --name mywebapp \
+  #     --resource-group my-rg \
+  #     --container-image-name myacr.azurecr.io/mywebapi:${{ github.sha }}
+  #   - name: Restart Web App
+  #     run: |
+  #       az webapp restart \
+  #         --name $WEBAPP_NAME \
+  #         --resource-group <resource-group>
