@@ -45,8 +45,8 @@ jobs:
          -f WebApiDemo/Dockerfile \
         -t ${{ env.ACR_NAME }}.azurecr.io/$IMAGE_NAME:${{ github.sha }} .
 
-    - name: List Docker Images
-      run: docker images 
+    # - name: List Docker Images
+    #   run: docker images 
 
     - name: Push Image
       run: |
@@ -66,7 +66,7 @@ jobs:
          az webapp restart \
            --name $WEBAPP_NAME \
            --resource-group pradeep4u
-           - name: Configure Web App
+  #  - name: Configure Web App
   # run: |
   #   az webapp config container set \
   #     --name mywebapp \
