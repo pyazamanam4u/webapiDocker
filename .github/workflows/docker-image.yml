@@ -6,7 +6,7 @@ on:
       - main
 
 env:
-  ACR_NAME: myacr
+  ACR_NAME: mywebapidemoacr4u
   IMAGE_NAME: mywebapi
   WEBAPP_NAME: mywebapi-prod
 
