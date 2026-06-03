@@ -29,10 +29,14 @@ jobs:
       run: |
         az acr login --name $ACR_NAME
 
+   # - name: Build Image
+      # run: |
+      #   docker build \
+      #     -t $ACR_NAME.azurecr.io/$IMAGE_NAME:${{ github.sha }} .
+
     - name: Build Image
       run: |
-        docker build \
-          -t $ACR_NAME.azurecr.io/$IMAGE_NAME:${{ github.sha }} .
+        docker build -t myimage .
 
     - name: Push Image
       run: |
