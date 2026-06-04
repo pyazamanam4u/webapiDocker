@@ -1,3 +1,4 @@
+using WebApiDemo.Models;
 using WebApiDemo.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,6 +10,13 @@ builder.Services.AddSingleton<RequestRateLimiter>();
 builder.Services.AddSingleton<
     ISwissEphemerisService,
     SwissEphemerisService>();
+builder.Services.Configure<AzureSpeechOptions>(
+    builder.Configuration.GetSection("AzureSpeech"));
+
+builder.Services.AddHttpClient<ISpeechService,
+    AzureSpeechService>();
+
+builder.Services.AddControllers();
 
 builder.Services.AddScoped<
     IPanchangService,

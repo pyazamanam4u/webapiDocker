@@ -5,6 +5,7 @@ using WebApiDemo.Services;
 
 namespace WebApiDemo.Controllers
 {
+   
     [ApiController]
     [Route("sanklapma")]
     public class SanklapmaController : ControllerBase
@@ -12,10 +13,31 @@ namespace WebApiDemo.Controllers
         private readonly IMemoryCache _cache;
         private readonly RequestRateLimiter _rateLimiter;
 
-        public SanklapmaController(IMemoryCache cache, RequestRateLimiter rateLimiter)
+        public SanklapmaController(IMemoryCache cache, RequestRateLimiter rateLimiter, ISpeechService speechService)
         {
             _cache = cache;
             _rateLimiter = rateLimiter;
+            _speechService = speechService;
+
+        }
+
+        private readonly ISpeechService _speechService;
+
+        
+        [HttpPost("generate-audio")]
+        public async Task<IActionResult> Generate(
+            SpeechRequest request,
+            CancellationToken cancellationToken)
+        {
+            var audio =
+                await _speechService
+                    .GenerateSpeechAsync(
+                        request,
+                        cancellationToken);
+
+            return File(
+                audio,
+                "audio/mpeg");
         }
 
         [HttpGet("tithi")]
@@ -182,12 +204,38 @@ namespace WebApiDemo.Controllers
             return Ok(response);
         }
 
-        [HttpGet("generateSankaplam")]
-        public ActionResult<PanchangResponseDto> GenerateSankaplam() { 
-            
-            return Ok();
-        
-        
-        }
+       
+
+
+        //[HttpPost("chat")]
+        //public async Task<ActionResult<ChatResponse>>
+        //    Chat(
+        //        ChatRequest request,
+        //        CancellationToken cancellationToken)
+        //{
+        //    var response =
+        //        await _speechService.GenerateSpeechAsync(
+        //            request,
+        //            cancellationToken);
+
+        //    return Ok(response);
+        //}
+
+        //[HttpPost("speech")]
+        //public async Task<IActionResult>
+        //    Speech(
+        //        SpeechRequest request,
+        //        CancellationToken cancellationToken)
+        //{
+        //    var bytes =
+        //        await _service.GenerateSpeechAsync(
+        //            request,
+        //            cancellationToken);
+
+        //    return File(
+        //        bytes,
+        //        "audio/mpeg",
+        //        "speech.mp3");
+        //}
     }
 }

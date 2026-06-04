@@ -1,7 +1,4 @@
-﻿
-using System.Security.Cryptography.X509Certificates;
-using System.Xml.Linq;
-using WebApiDemo.Models;
+﻿using WebApiDemo.Models;
 
 public interface IPanchangService
 {
@@ -377,4 +374,41 @@ purpose
             _ => "Unknown"
         };
     }
+
+    //public async Task<byte[]> GenerateSpeechAsync(
+    //string text,
+    //CancellationToken cancellationToken)
+    //{
+    //    var endpoint =
+    //        $"{_options.Endpoint}/openai/deployments/{_options.TtsDeployment}/audio/speech?api-version=2025-04-01-preview";
+
+    //    var payload = new
+    //    {
+    //        model = "gpt-4o-mini-tts",
+    //        input = text,
+    //        voice = "alloy"
+    //    };
+
+    //    using var request =
+    //        new HttpRequestMessage(
+    //            HttpMethod.Post,
+    //            endpoint);
+
+    //    request.Headers.Add(
+    //        "api-key",
+    //        _options.ApiKey);
+
+    //    request.Content =
+    //        JsonContent.Create(payload);
+
+    //    var response =
+    //        await _httpClient.SendAsync(
+    //            request,
+    //            cancellationToken);
+
+    //    response.EnsureSuccessStatusCode();
+
+    //    return await response.Content
+    //        .ReadAsByteArrayAsync(cancellationToken);
+    //}
 }
