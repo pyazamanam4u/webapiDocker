@@ -23,7 +23,7 @@ builder.Services.AddCors(options =>
             policy
                 .WithOrigins(
                     "http://localhost:4200",
-                    "https://yourdomain.com")
+                    "https://gentle-mud-02d65fd10.7.azurestaticapps.net")
                 .AllowAnyHeader()
                 .AllowAnyMethod();
         });
