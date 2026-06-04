@@ -1,4 +1,6 @@
 ﻿
+using System.Security.Cryptography.X509Certificates;
+using System.Xml.Linq;
 using WebApiDemo.Models;
 
 public interface IPanchangService
@@ -83,11 +85,39 @@ public sealed class PanchangService : IPanchangService
         string yearName =
             CalculateSamvatsara(dateTime.Year);
 
-        string sankalpaTemplate =
-            $"Om Namo Narayanaya. " +
-            $"Today is {dateTime:yyyy-MM-dd}, " +
-            $"{paksha}, {englishName}.";
+        //string sankalpaTemplate =
+        //    $"Om Namo Narayanaya. " +
+        //    $"Today is {dateTime:yyyy-MM-dd}, " +
+        //    $"{paksha}, {englishName}.";
+        string sankalpaTemplate = $@"
+ॐ नमो नारायणाय ।
 
+अद्य ब्रह्मणः द्वितीयपरार्धे
+श्वेतवाराहकल्पे
+वैवस्वतमन्वन्तरे
+अष्टाविंशतितमे कलियुगे
+प्रथमपादे
+जम्बूद्वीपे
+भरतवर्षे
+भरतखण्डे
+
+{yearName} नाम संवत्सरे
+{rutu} ऋतौ
+{paksha} पक्षे
+{englishName} तिथौ
+{weekday} वासरे
+{nakshatra} नक्षत्रे
+{yoga} योगे
+{karana} करणे
+{moonRashi} राशिस्थिते चन्द्रे
+
+श्रीमन्नारायण प्रीत्यर्थं
+ममोपात्त समस्त दुरितक्षयद्वारा
+purpose
+करिष्ये ।
+
+ॐ तत्सत् ॥
+";
         return new PanchangResponseDto(
             Date: dateTime.ToString("yyyy-MM-dd"),
 

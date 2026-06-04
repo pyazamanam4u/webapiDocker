@@ -181,5 +181,13 @@ namespace WebApiDemo.Controllers
 
             return Ok(response);
         }
+
+        [HttpGet("generateSankaplam")]
+        public ActionResult<PanchangResponseDto> GenerateSankaplam() { 
+            
+            return Ok();
+        
+        
+        }
     }
 }
