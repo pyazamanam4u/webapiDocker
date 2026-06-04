@@ -7,7 +7,9 @@ namespace WebApiDemo.Models
         string Weekday,
         string Rutu,
         string YearName,
-        TithiDto Tithi
+        TithiDto Tithi,
+     string SankalpaTemplate
+
     );
 
     public record PanchangResult(

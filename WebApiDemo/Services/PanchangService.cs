@@ -150,9 +150,10 @@ purpose
 
                 Karana: karana,
 
-                MoonRashi: moonRashi,
+                MoonRashi: moonRashi
 
-                SankalpaTemplate: sankalpaTemplate)
+                ),
+            SankalpaTemplate: sankalpaTemplate
         );
     }
 

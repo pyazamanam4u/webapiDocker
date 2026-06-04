@@ -11,7 +11,6 @@ public record TithiDto(
     string Nakshatra,
     string Yoga,
     string Karana,
-    string MoonRashi,
-    string SankalpaTemplate
+    string MoonRashi
 );
 }
