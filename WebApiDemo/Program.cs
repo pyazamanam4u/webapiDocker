@@ -6,6 +6,13 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddMemoryCache();
 builder.Services.AddSingleton<RequestRateLimiter>();
+builder.Services.AddSingleton<
+    ISwissEphemerisService,
+    SwissEphemerisService>();
+
+builder.Services.AddScoped<
+    IPanchangService,
+    PanchangService>();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 

@@ -112,6 +112,7 @@ namespace WebApiDemo.Controllers
             var names = TithiNames.GetNames();
             var englishName = names.English[(tithiNumber - 1) % names.English.Length];
             var teluguName = names.Telugu[(tithiNumber - 1) % names.Telugu.Length];
+
             var paksha = tithiNumber <= 15 ? "Shukla Paksha" : "Krishna Paksha";
 
             var sunrise = MakeDto(parsedDate, 6, 0, 0);

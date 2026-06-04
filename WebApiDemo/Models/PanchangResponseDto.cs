@@ -9,4 +9,13 @@ namespace WebApiDemo.Models
         string YearName,
         TithiDto Tithi
     );
+
+    public record PanchangResult(
+    int TithiNumber,
+    string TithiName,
+    string Paksha,
+    int NakshatraNumber,
+    string NakshatraName,
+    string Yoga,
+    string Karana);
 }
