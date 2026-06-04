@@ -156,9 +156,9 @@ namespace WebApiDemo.Controllers
                     Nakshatra: nakshatra,
                     Yoga: yoga,
                     Karana: karana,
-                    MoonRashi: moonRashi,
-                    SankalpaTemplate: sankalpaTemplate
-                )
+                    MoonRashi: moonRashi
+                ),
+                SankalpaTemplate: sankalpaTemplate
             );
 
             // Cache response
